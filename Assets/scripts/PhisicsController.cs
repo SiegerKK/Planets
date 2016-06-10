@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -12,6 +13,7 @@ public class PhisicsController : MonoBehaviour {
 
 	public double timeWarp = 1;
 	public Transform camera;
+	public Text timeWarpText;
 
 	private List<GameObject> objects;
 	private double timeCurrent = 0;
@@ -21,6 +23,8 @@ public class PhisicsController : MonoBehaviour {
 		objects = new List<GameObject> ();
 		initObjectsList ();
 		printObjectsList ();
+
+		setTimeWarp (50000);
 	}
 
 	void Update () {
@@ -31,6 +35,12 @@ public class PhisicsController : MonoBehaviour {
 
 	public void setTimeWarp(float q){
 		timeWarp = q;
+		if (timeWarpText != null) {
+			if (timeWarp - 1.0 < 0.000001)
+				timeWarpText.text = "Real time";
+			else
+				timeWarpText.text = ((int)timeWarp).ToString() + "x";
+		}
 	}
 
 	//-----------//--Phisics--//---------//
