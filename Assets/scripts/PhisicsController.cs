@@ -29,6 +29,10 @@ public class PhisicsController : MonoBehaviour {
 		Debug.Log ("End Update(" + timeCurrent / 86400.0 + ")");
 	}
 
+	public void setTimeWarp(float q){
+		timeWarp = q;
+	}
+
 	//-----------//--Phisics--//---------//
 
 	private void calculatePhisics(){
