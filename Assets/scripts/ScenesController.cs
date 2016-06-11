@@ -11,4 +11,7 @@ public class ScenesController : MonoBehaviour {
 	public void loadScene3(){
 		Application.LoadLevel ("test3");
 	}
+	public void loadSceneMain(){
+		Application.LoadLevel ("main");
+	}
 }

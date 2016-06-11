@@ -13,7 +13,7 @@ public class PhisicsController : MonoBehaviour {
 
 	public double timeWarp = 1;
 	public Transform camera;
-	public Text timeWarpText;
+	public Text timeWarpText, elaspedTimeText;
 
 	private List<GameObject> objects;
 	private double timeCurrent = 0;
@@ -30,6 +30,8 @@ public class PhisicsController : MonoBehaviour {
 	void Update () {
 		calculatePhisics ();
 		timeCurrent += Time.deltaTime * timeWarp;
+
+		changeElaspedTimeText ();
 		Debug.Log ("End Update(" + timeCurrent / 86400.0 + ")");
 	}
 
@@ -100,6 +102,10 @@ public class PhisicsController : MonoBehaviour {
 	}
 
 	//-----------//----------//---------//
+
+	private void changeElaspedTimeText(){
+		elaspedTimeText.text = "Day: " + ((int)(timeCurrent / 86400)).ToString ();
+	}
 
 	private void printObjectsList(){
 		for(int i = 0; i < objects.Count; i++)
